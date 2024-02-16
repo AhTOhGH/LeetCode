@@ -61,6 +61,27 @@ public:
 
         return actualSize;
     }
+    
+    int removeElement4(std::vector<int>& nums, int val) 
+    {
+        int end = nums.size() - 1;
+        int i = 0;
+        for(; i < nums.size(); i++)
+        {
+            if(nums[i] == val)
+            {
+                while(nums[end] == val && end != i)
+                    end--;
+                
+                if(i == end)
+                    return i;
+
+                std::swap(nums[i], nums[end]);
+            }
+        }
+
+        return i;
+    }
 
 };
 
